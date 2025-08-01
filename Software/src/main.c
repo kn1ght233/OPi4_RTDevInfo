@@ -166,13 +166,16 @@ void Work()
     SSD1306_PutString(0, 17, tempStr, MF_7x10, White);
 
     /*显示内存利用率*/
-    freeMem = GetMemFree();
-    totalMem = GetMemTotal();
+    char tempStr[TEMP_STR_LEN];
+    unsigned long long totalMem = GetMemTotal();
+    unsigned long long freeMem = GetMemFree();
+    unsigned long long usedMem = totalMem - freeMem;
 
     memset(tempStr, 0, TEMP_STR_LEN);
-    sprintf(tempStr, "Mem:%.1lf %d%%",
-            TO_GB(totalMem - freeMem),
-            (int)((totalMem - freeMem) * 1.0 / totalMem * 100));
+    sprintf(tempStr, "Mem:%.1f %d%%",
+        TO_GB(usedMem),
+        (int)(usedMem * 100.0 / totalMem));
+
     SSD1306_PutString(0, 28, tempStr, MF_7x10, White);
 
     /*显示温度*/
