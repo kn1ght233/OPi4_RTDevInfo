@@ -13,7 +13,7 @@
 
 #define TEMP_STR_LEN    64
 #define IP_STR_LEN      20
-#define TO_GB(b)        ((b) / pow(1024, 3))
+#define TO_GB(b) ((b) / (1024.0 * 1024 * 1024))
 #define TO_SEC(h, m)    ((h) * 3600 + (m) * 60)
 
 
