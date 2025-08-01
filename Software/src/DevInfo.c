@@ -62,31 +62,29 @@ float GetCpuUsage()
     return cpu;
 }
 
-unsigned long GetMemTotal()
+unsigned long long GetMemTotal()
 {
-    /*Byte*/
     struct sysinfo s_info;
-
     if(sysinfo(&s_info) == 0)
     {
-        return s_info.totalram;
+        return (unsigned long long)s_info.totalram * s_info.mem_unit;
     }
     else
     {
-        return -1;
+        return 0;
     }
 }
 
-unsigned long GetMemFree()
+unsigned long long GetMemFree()
 {
     struct sysinfo s_info;
     if(sysinfo(&s_info) == 0)
     {
-        return s_info.freeram;
+        return (unsigned long long)s_info.freeram * s_info.mem_unit;
     }
     else
     {
-        return -1;
+        return 0;
     }
 }
 
