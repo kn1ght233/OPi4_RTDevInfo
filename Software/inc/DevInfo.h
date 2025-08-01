@@ -11,8 +11,8 @@ typedef struct
 }CPU_OCCUPY;
 
 float GetCpuUsage();
-unsigned long GetMemFree();
-unsigned long GetMemTotal();
+unsigned long long GetMemFree();
+unsigned long long GetMemTotal();
 float GetCpuTemp();
 long long GetAvailDisk();
 float cal_cpuoccupy(CPU_OCCUPY *o,CPU_OCCUPY *n);
