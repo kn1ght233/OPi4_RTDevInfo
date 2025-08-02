@@ -174,7 +174,7 @@ void Work()
 
     memset(tempStr, 0, TEMP_STR_LEN);
     sprintf(tempStr, "Mem:%.1f %d%%",
-        TO_MB(usedMem),
+        (int)(TO_MB(usedMem)),
         (int)(usedMem * 100.0 / totalMem));
 
     SSD1306_PutString(0, 28, tempStr, MF_7x10, White);
