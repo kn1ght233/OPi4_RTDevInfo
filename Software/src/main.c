@@ -14,6 +14,7 @@
 #define TEMP_STR_LEN    64
 #define IP_STR_LEN      20
 #define TO_GB(b) ((b) / (1024.0 * 1024 * 1024))
+#define TO_MB(b) ((b) / (1024.0 * 1024))
 #define TO_SEC(h, m)    ((h) * 3600 + (m) * 60)
 
 
@@ -173,7 +174,7 @@ void Work()
 
     memset(tempStr, 0, TEMP_STR_LEN);
     sprintf(tempStr, "Mem:%.1f %d%%",
-        TO_GB(usedMem),
+        TO_MB(usedMem),
         (int)(usedMem * 100.0 / totalMem));
 
     SSD1306_PutString(0, 28, tempStr, MF_7x10, White);
